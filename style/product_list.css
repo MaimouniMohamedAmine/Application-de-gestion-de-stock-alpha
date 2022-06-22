@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#dashboard_title {
+    /* margin-left: -1rem !important; */
+    color: #555c8e;
+}
+.dashboard_table {
+    position: relative;
+    background-color: #555c8e;
+    border-radius: 12px;
+    padding: 20px;
+}
+a {
+    text-decoration: none;
+}
+.back_ground_color {
+    background-color: #050a30;
+}
+.side_nav {
+    height: 100vh;
+}
+.active {
+    background-color: #555c8e !important;
+}
+.logo {
+    margin-left: -1em !important;
+    width: 72px;
+}
+.logout_btn {
+    background: linear-gradient(90deg, #895cf2 0%, #6942ef 109.05%) !important;
+    border-radius: 24px !important;
+    border: none !important;
+    font-size: 12px !important;
+}
+.search_form {
+    border-radius: 11px;
+    background-color: #050a30 !important;
+}
+.search_input {
+    border-radius: 11px !important;
+    border: none !important;
+    background-color: #050a30 !important;
+}
+#add_btn {
+    width: 4rem;
+    color: #fff;
+    background: linear-gradient(90.21deg, #44ea76 0.57%, #39fad7 95.68%);
+    border: none;
+    border-radius: 10px;
+}
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    color: #fff;
+    background-color: #6942ef !important;
+}
+.th_thead {
+    background-color: #050a30 !important;
+    font-weight: bold;
+    color: #fff;
+}
+tbody {
+    color: #fff;
+    background-color: #09135a !important;
+}
+.edit_btn {
+    width: 4rem;
+    color: #000;
+    background: linear-gradient(90deg, #edde1b 0%, #fffabb 111.65%);
+    border: none;
+    border-radius: 11px;
+}
+.delete_btn {
+    width: 4rem;
+    color: #fff;
+    background: linear-gradient(90deg, #ff4805 0%, #ff6f6f 104.37%);
+    border: none;
+    border-radius: 11px;
+}
