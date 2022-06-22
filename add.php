@@ -18,19 +18,20 @@ $result = $stm->get_result();
 
 <body>
     <form action="server.php" method="POST">
+        Select category <br>
         <select name="category" id="cars">
             <?php
             while($row = $result-> fetch_assoc()):
             ?>
-            <option value="<?php echo $row['ID']; ?>"><?php echo $row['Names']; ?></option>
+            <option value="<?php echo $row['ID']; ?>"><?php echo $row['Cat_name']; ?></option>
             <?php endwhile; ?>
         </select>
         Product name
-        <input type="text" name="product_name">
+        <input type="text" name="product_name"><br>
         Price
-        <input type="number" name="product_price" id="">
+        <input type="number" name="product_price" id=""><br>
         quantity
-        <input type="number" name="product_quantity" id="">
+        <input type="number" name="product_quantity" id=""><br>
         description
         <textarea name="product_description" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="submit" name="submit">
