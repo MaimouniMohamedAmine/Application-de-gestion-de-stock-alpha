@@ -1,3 +1,11 @@
+<?php
+session_start();
+$connect = mysqli_connect('localhost','root','','db_backoffice');
+$select = $connect -> prepare("select * from category INNER JOIN product ON category.ID = product.Category_id");
+$select -> execute();
+$result = $select -> get_result();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,9 +71,12 @@
                     </li>
                 </ul>
                 <div class="dropdown border-top">
-                    <button type="button" class="btn btn-primary logout_btn">
-                        LOGOUT
-                    </button>
+                    <a href="logout.php">
+
+                        <button type="button" class="btn btn-primary logout_btn">
+                            LOGOUT
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -124,28 +135,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                              while($row = $result-> fetch_assoc()):
+                              ?>
                                 <tr>
-                                    <td>Baseball cap</td>
-                                    <td>12</td>
-                                    <td>40{unit}</td>
-                                    <td>Hats & Caps</td>
-                                    <td>100</td>
+                                    <td><?php echo $row['Name']; ?></td>
+                                    <td><?php echo $row['ID']*0+rand(1,99);?></td>
+                                    <td><?php echo $row['Price'];?></td>
+                                    <td><?php echo $row['Cat_name']; ?></td>
+                                    <td><?php echo $row['Quantity']; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>Supreme T-shirt</td>
-                                    <td>50</td>
-                                    <td>800{unit}</td>
-                                    <td>T-shirts</td>
-                                    <td>25</td>
-                                </tr>
-                                <tr>
-                                    <td>YEEZY 360</td>
-                                    <td>77</td>
-                                    <td>3000{unit}</td>
-                                    <td>Sneakers</td>
-                                    <td>10</td>
-                                </tr>
-                            </tbody>
+                                <?php endwhile; ?>
                         </table>
                     </div>
                 </section>

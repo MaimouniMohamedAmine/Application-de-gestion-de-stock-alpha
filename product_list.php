@@ -13,8 +13,6 @@ if(isset($_GET['delete']))
 }
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +117,7 @@ if(isset($_GET['delete']))
                             <!-- Search bar -->
 
                             <!-- Modal section -->
-                            <a href="">
+                            <a href="add.php">
 
                                 <button id="add_btn" type="button" type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#product_modal">
@@ -197,8 +195,8 @@ if(isset($_GET['delete']))
                                     <td><?php echo $row['Price'];?></td>
                                     <td><?php echo $row['Cat_name']; ?></td>
                                     <td><?php echo $row['Quantity']; ?></td>
-                                    <td><a class="edit_btn">EDIT</a> <a
-                                            onClick="return confirm('Are you sure you want to delete this article?')"
+                                    <td><a href='add.php?edit=<?php echo $row['ID'];?>' class="edit_btn">EDIT</a>
+                                        <a onClick="return confirm('Are you sure you want to delete this article?')"
                                             href='product_list.php?delete=<?php echo $row['ID'];?>' name='delete_btn'
                                             class="delete_btn">DELETE</a>
                                     </td>
