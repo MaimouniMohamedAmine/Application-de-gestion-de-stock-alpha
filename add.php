@@ -17,13 +17,12 @@ if(isset($_GET['edit'])) {
     $product_price = $row_edit['Price']; $product_quantity = $row_edit['Quantity']; $product_description = $row_edit['Description']; } ?>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/style/product_list.css" />
-
+    
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style\add.css" />
+    <link rel="stylesheet" href="style/product_list.css" />
     <title>Add | MANAGE verse</title>
 </head>
 
