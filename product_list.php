@@ -31,14 +31,14 @@ if(isset($_GET['delete']))
     <main>
         <section class="d-flex flex-row w-100">
             <div class=" side_nav d-flex flex-column flex-shrink-0 back_ground_color" style="width: 4.5rem">
-                <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Icon-only"
+                <a href="dashboard.php" class="d-block p-3 link-dark text-decoration-none" title="Icon-only"
                     data-bs-toggle="tooltip" data-bs-placement="right">
                     <img src="/Logo/logo.png" class="logo" alt="" />
                     <span class="visually-hidden">Icon-only</span>
                 </a>
                 <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                     <li class="nav-item">
-                        <a href="#" class="nav-link  py-3 border-bottom rounded-0" aria-current="page" title="Home"
+                        <a href="dashboard.php" class="nav-link  py-3 border-bottom rounded-0" aria-current="page" title="Home"
                             data-bs-toggle="tooltip" data-bs-placement="right">
                             <svg id="" width="24" height="24" viewBox="0 0 61 54" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ if(isset($_GET['delete']))
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link active py-3 border-bottom rounded-0" title="Dashboard"
+                        <a href="product_list.php" class="nav-link active py-3 border-bottom rounded-0" title="Product list"
                             data-bs-toggle="tooltip" data-bs-placement="right">
                             <svg width="24" height="24" viewBox="0 0 54 48" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -191,8 +191,8 @@ if(isset($_GET['delete']))
                               ?>
                                 <tr>
                                     <td><?php echo $row['Name']; ?></td>
-                                    <td><?php echo $row['ID']*0+rand(1,99);?></td>
-                                    <td><?php echo $row['Price'];?></td>
+                                    <td><?php echo $row['ID']*0+12;?></td>
+                                    <td><?php echo $row['Price']."<b> MAD</b>";?></td>
                                     <td><?php echo $row['Cat_name']; ?></td>
                                     <td><?php echo $row['Quantity']; ?></td>
                                     <td><a href='add.php?edit=<?php echo $row['ID'];?>' class="edit_btn">EDIT</a>

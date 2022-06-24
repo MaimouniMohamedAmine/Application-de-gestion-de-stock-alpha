@@ -62,3 +62,6 @@
 .center_div {
     margin-left: 35em;
 }
+#small_msg {
+    color: #f1f1f1 !important;
+}

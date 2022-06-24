@@ -5,7 +5,6 @@ $select = $connect->prepare("select * from category where 1");
 $select -> execute();
 $result = $select -> get_result();
 $update= 0;
-$_SESSION['Karim'] = true;
 if(isset($_POST['submit']))
 {
     $username = $_POST['username'];
@@ -17,10 +16,14 @@ if(isset($_POST['submit']))
     $results = $row_login['username'];
     if($results == $username )
     {
-        
+        $_SESSION['session'] = true;  
         header('Location: dashboard.php');
     } else{
-        $_SESSION['Karim'] = false;
+        $_SESSION['session'] = false;
+        header('Location: login.php');
+    }
+    if($username == '')
+    {
         header('Location: login.php');
     }
 
@@ -52,11 +55,16 @@ if(isset($_POST['submit']))
                     <input name='username' class="login_input" type="text" /><br />
                     <label class="login_label">Password</label><br />
                     <input name='password' class="login_input" type="password" /><br />
-                    <?php if($_SESSION['Karim'] == false) {
-                        echo "this username or password is wrong";}
-                        else{
-                            echo " ";
-                        }?>
+                    <?php
+                    if(isset($_SESSION['session']))
+                    {   
+                        if($_SESSION['session'] == false) {
+                            echo "<small id='small_msg' > The username or password is wrong</small><br>";}
+                            else{
+                                echo " ";
+                            }
+                    }
+                        ?>
                     <input id="login_btn" type="submit" name='submit' value="LOGIN" />
 
                 </form>
