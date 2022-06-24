@@ -11,7 +11,9 @@ if(isset($_GET['edit'])) {
     $update = 1; $edit_id = $_GET['edit']; $_SESSION['Id'] = $_GET['edit'];
     $select_edit = $connect -> prepare("select * from category INNER JOIN product ON category.ID = product.Category_id WHERE product.ID = $edit_id");
     $select_edit -> execute(); $result_edit = $select_edit -> get_result();
-    $row_edit = $result_edit -> fetch_assoc(); $select_category = $row_edit['Cat_name']; $product_name = $row_edit['Name'] ;
+    $row_edit = $result_edit -> fetch_assoc(); 
+    $select_category = $row_edit['Cat_name']; 
+    $product_name = $row_edit['Name'] ;
     $product_price = $row_edit['Price']; $product_quantity = $row_edit['Quantity']; $product_description = $row_edit['Description']; } ?>
 <!DOCTYPE html>
 <html lang="en">
