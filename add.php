@@ -1,7 +1,13 @@
 <?php
 session_start();
+error_reporting(0);
 $connect = mysqli_connect('localhost','root','','db_backoffice');
-$select = $connect->prepare("select * from category where 1"); $select -> execute(); $result = $select -> get_result(); 
+$select = $connect->prepare("select * from category");
+$select -> execute(); $result = $select -> get_result(); 
+
+if ($_SESSION['session'] != true) {
+    exit("You are not allowed to that! So, don't pls :)");
+}
 $update= 0;
 $product_name = '' ;
 $product_price = '';
@@ -17,7 +23,6 @@ if(isset($_GET['edit'])) {
     $product_price = $row_edit['Price']; $product_quantity = $row_edit['Quantity']; $product_description = $row_edit['Description']; } ?>
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< Updated upstream
     
 <head>
     <meta charset="UTF-8" />
@@ -37,41 +42,6 @@ if(isset($_GET['edit'])) {
                 <label class="form_label">Select category</label><br />
                 <br />
                 <select class="form_input" aria-label="Default select example" name="category" id="cars">
-=======
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style/product_list.css" />
-        <!-- <link rel="stylesheet" href="style\add.css" /> -->
-        <title>Add | MANAGE verse</title>
-    </head>
-
-    <body>
-        <main class="container">
-            <div id="logo_div">
-                <img id="logo" src="/Logo/logo.png" alt="" />
-            </div>
-            <div class="form_container">
-                <form class="add_form" action="server.php" method="POST">
-                    <label class="form_label">Select category</label><br />
-                    <br />
-                    <select class="form_input" aria-label="Default select example" name="category" id="cars">
-                        <?php
-                            while($row = $result->
-                        fetch_assoc()): ?>
-                        <option value="<?php echo $row['ID']; ?>"><?php echo $row['Cat_name']; ?></option>
-                        <?php endwhile; ?></select
-                    ><br />
-                    <label class="form_label">Product name</label><br />
-                    <input class="form_input" value=" <?php echo $product_name?>" type="text" name="product_name" /><br />
-                    <label class="form_label">Price</label><br />
-                    <input class="form_input" value=" <?php echo $product_price?>" type="text" name="product_price" id="" /><br />
-                    <label class="form_label">Quantity</label><br />
-                    <input class="form_input" value=" <?php echo $product_quantity?>" type="text" name="product_quantity" id="" /><br />
-                    <label class="form_label">Description</label><br />
-                    <textarea class="form_input" name="product_description" type="text" cols="30" rows="10"><?php echo $product_description;?></textarea><br />
->>>>>>> Stashed changes
                     <?php
                             while($row = $result->fetch_assoc()): 
                         ?>
@@ -92,21 +62,12 @@ if(isset($_GET['edit'])) {
                 <?php
                             if($update == 0) :
                     ?>
-<<<<<<< Updated upstream
                 <input type="submit" value="SUBMIT" name="submit" />
                 <?php
                         else : 
                         ?>
                 <input type="submit" value="EDIT" name="edit_btn" class="edit_btn" />
                 <?php
-=======
-                    <input type="submit" value="SUBMIT" name="submit" />
-                    <?php
-                        else : 
-                    ?>
-                    <input type="submit" value="EDIT" name="edit_btn" class="edit_btn" />
-                    <?php
->>>>>>> Stashed changes
                         endif;
                     ?>
             </form>

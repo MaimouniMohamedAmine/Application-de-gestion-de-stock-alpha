@@ -1,10 +1,15 @@
 <?php
+error_reporting(0);
 session_start();
+
 $connect = mysqli_connect('localhost','root','','db_backoffice');
 $select = $connect -> prepare("select * from category INNER JOIN product ON category.ID = product.Category_id");
 $select -> execute();
 $result = $select -> get_result();
-
+//security condition to prevent logging in through url 
+if ($_SESSION['session'] != true) {
+    exit('You are not allowed to that :)');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +94,6 @@ $result = $select -> get_result();
                 <section class=" mt-5 ms- mb-5 w-100">
 
                     <div class="d-flex justify-content-evenly">
-
                         <div class="w-50">
                             <h1 id="dashboard_title">Current inventory</h1>
                         </div>

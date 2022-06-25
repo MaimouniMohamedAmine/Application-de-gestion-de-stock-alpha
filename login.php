@@ -13,8 +13,10 @@ if(isset($_POST['submit']))
     $select_login -> execute();
     $result_login = $select_login -> get_result();
     $row_login = $result_login -> fetch_assoc();
-    $results = $row_login['username'];
-    if($results == $username )
+    $user_res = $row_login['username'];
+    $psw_res = $row_login['password'];
+
+    if($user_res == $username && $psw_res == $password)
     {
         $_SESSION['session'] = true;  
         header('Location: dashboard.php');
@@ -22,8 +24,9 @@ if(isset($_POST['submit']))
         $_SESSION['session'] = false;
         header('Location: login.php');
     }
-    if($username == '')
+    if($username == '' && $password =='' )
     {
+        $_SESSION['session'] = false;
         header('Location: login.php');
     }
 
@@ -36,7 +39,7 @@ if(isset($_POST['submit']))
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style/login.css" />
+    <link rel="stylesheet" href="style/login.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <title>Login | MANAGE verse</title>

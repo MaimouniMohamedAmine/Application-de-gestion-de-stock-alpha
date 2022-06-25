@@ -115,5 +115,5 @@ tbody {
 .form-control {
     border-radius: 7px !important;
     border: none !important;
-    background-color: #c4cbff !important;
+    /* background-color: #c4cbff !important; */
 }

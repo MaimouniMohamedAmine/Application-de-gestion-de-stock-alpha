@@ -1,9 +1,14 @@
 <?php
+error_reporting(0);
 session_start();
 $connect = mysqli_connect('localhost','root','','db_backoffice');
 $select = $connect->prepare("select * from category INNER JOIN product ON category.ID = product.Category_id");
 $select -> execute();
 $result = $select->get_result();
+
+if ($_SESSION['session'] != true) {
+    exit('You are not allowed to that :)');
+}
 // delete button
 if(isset($_GET['delete']))
 {
@@ -22,7 +27,7 @@ if(isset($_GET['delete']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script src="https://kit.fontawesome.com/35d9b7530c.js" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="/style/product_list.css" />
+    <link rel="stylesheet" href="style/product_list.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
@@ -79,9 +84,13 @@ if(isset($_GET['delete']))
                     </li>
                 </ul>
                 <div class="dropdown border-top">
-                    <button type="button" class="btn btn-primary logout_btn">
-                        LOGOUT
-                    </button>
+                    <a href="logout.php">
+
+                        <button  type="button" class="btn btn-primary logout_btn">
+                            LOGOUT
+                        </button>
+
+                    </a>
                 </div>
             </div>
 

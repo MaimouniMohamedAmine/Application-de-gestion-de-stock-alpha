@@ -1,6 +1,10 @@
 <?php
+error_reporting(0);
 session_start();
 $connect = mysqli_connect('localhost','root','','db_backoffice');
+if ($_SESSION['session'] != true) {
+    exit('You are not allowed to that in this page too :)');
+}
 if (isset($_POST['submit']))
 {
     $select_category = $_POST['category'];
@@ -8,7 +12,7 @@ if (isset($_POST['submit']))
     $product_price = $_POST['product_price'];
     $product_quantity = $_POST['product_quantity'];
     $product_description = $_POST['product_description'];
-    $insert_req = "INSERT INTO product (Category_id,Name,Price,Quantity,Description) values ('$select_category','$product_name','$product_price','$product_quantity','$desc')";    
+    $insert_req = "INSERT INTO product (Category_id,Name,Price,Quantity,Description) values ('$select_category','$product_name','$product_price','$product_quantity','$product_description')";    
     $insert_req_query = mysqli_query($connect,$insert_req);
     header('Location: product_list.php');
 }
